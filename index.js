@@ -1,10 +1,12 @@
 function getComputerChoice(){
     let arr = ["Rock","Paper","Scissors"];
     return arr[Math.floor(Math.random() * arr.length)];
-}
+}let playerSelection;
+const computerSelection = getComputerChoice();
 let PlayerPoints = 0;
 let ComputerPoints = 0; 
 function playRound(playerSelection,computerSelection){
+    playerSelection = prompt("Type either Rock,Paper or Scissors","Rock");
     if(playerSelection.toUpperCase() === "ROCK" && computerSelection === "Scissors"){
         PlayerPoints++;
         return "You Win! Rock beats Scissors";
@@ -31,6 +33,15 @@ function playRound(playerSelection,computerSelection){
         return "Tied! No one gets a point";
     }
 }
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game(){
+    for(let i = 0; i < 5; i++){
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    if(PlayerPoints > ComputerPoints){
+        return `You won the GAME! You got ${PlayerPoints}/5 and Computer got ${ComputerPoints}/5`;
+    } else if(PlayerPoints < ComputerPoints){
+        return `You lose the GAME! Computer got ${ComputerPoints}/5 and You got ${PlayerPoints}/5`;
+    }
+}
+console.log(game());
+
