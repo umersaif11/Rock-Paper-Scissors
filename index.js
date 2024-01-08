@@ -1,10 +1,13 @@
+//Function to get randomly rock paper or scissors
 function getComputerChoice(){
     let arr = ["Rock","Paper","Scissors"];
     return arr[Math.floor(Math.random() * arr.length)];
-}let playerSelection;
+}
+let playerSelection;
 const computerSelection = getComputerChoice();
-let PlayerPoints = 0;
-let ComputerPoints = 0; 
+let PlayerPoints = 0; 
+let ComputerPoints = 0;
+//function to play one round of game 
 function playRound(playerSelection,computerSelection){
     playerSelection = prompt("Type either Rock,Paper or Scissors","Rock");
     if(playerSelection.toUpperCase() === "ROCK" && computerSelection === "Scissors"){
@@ -33,6 +36,7 @@ function playRound(playerSelection,computerSelection){
         return "Tied! No one gets a point";
     }
 }
+//function to play five rounds and display winner in the end
 function game(){
     for(let i = 0; i < 5; i++){
         console.log(playRound(playerSelection, computerSelection));
@@ -41,6 +45,8 @@ function game(){
         return `You won the GAME! You got ${PlayerPoints}/5 and Computer got ${ComputerPoints}/5`;
     } else if(PlayerPoints < ComputerPoints){
         return `You lose the GAME! Computer got ${ComputerPoints}/5 and You got ${PlayerPoints}/5`;
+    } else if (PlayerPoints === ComputerPoints){
+        return "Match draw! Play one more round";
     }
 }
 console.log(game());
