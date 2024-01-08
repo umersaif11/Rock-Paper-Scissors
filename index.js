@@ -4,12 +4,11 @@ function getComputerChoice(){
     return arr[Math.floor(Math.random() * arr.length)];
 }
 let playerSelection;
-const computerSelection = getComputerChoice();
 let PlayerPoints = 0; 
 let ComputerPoints = 0;
 //function to play one round of game 
-function playRound(playerSelection,computerSelection){
-    playerSelection = prompt("Type either Rock,Paper or Scissors","Rock");
+function playRound(playerSelection,getComputerChoice){
+    let computerSelection = getComputerChoice();
     if(playerSelection.toUpperCase() === "ROCK" && computerSelection === "Scissors"){
         PlayerPoints++;
         return "You Win! Rock beats Scissors";
@@ -36,18 +35,17 @@ function playRound(playerSelection,computerSelection){
         return "Tied! No one gets a point";
     }
 }
-//function to play five rounds and display winner in the end
-function game(){
-    for(let i = 0; i < 5; i++){
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    if(PlayerPoints > ComputerPoints){
-        return `You won the GAME! You got ${PlayerPoints}/5 and Computer got ${ComputerPoints}/5`;
-    } else if(PlayerPoints < ComputerPoints){
-        return `You lose the GAME! Computer got ${ComputerPoints}/5 and You got ${PlayerPoints}/5`;
-    } else if (PlayerPoints === ComputerPoints){
-        return "Match draw! Play one more round";
-    }
-}
-console.log(game());
+
+//Use Query-selectors to select buttons and name them
+let rock = document.querySelector('#rock');
+ rock.textContent = 'Rock!';
+ document.body.appendChild(rock);
+
+let paper = document.querySelector('#paper');
+ paper.textContent = 'Paper!';
+ document.body.appendChild(paper);
+
+let scissors = document.querySelector('#scissors');
+ scissors.textContent = 'Scissors!';
+ document.body.appendChild(scissors);
 
