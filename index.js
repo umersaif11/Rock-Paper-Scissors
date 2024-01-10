@@ -49,3 +49,48 @@ let scissors = document.querySelector('#scissors');
  scissors.textContent = 'Scissors!';
  document.body.appendChild(scissors);
 
+//div to show results 
+let div2 = document.querySelector('#div2');
+
+//Event listeners for buttons
+ rock.addEventListener('click',() => {
+    div2.textContent += `${playRound('ROCK', getComputerChoice)} 
+    Note: Computer-points=${ComputerPoints} and Players-points=${PlayerPoints}
+    
+    `;
+    if(PlayerPoints === 5){
+        div2.textContent += `YOU WIN!!! CONGRATULATIONS.
+        `;
+    } else if(ComputerPoints === 5){
+        div2.textContent += `YOU LOSE!!! TRY AGAIN.
+        `;
+    }
+});
+ paper.addEventListener('click',() => {
+    div2.textContent += `${playRound('PAPER', getComputerChoice)} 
+    Note: Computer-points=${ComputerPoints} and Players-points=${PlayerPoints}
+    
+    `;
+    if(PlayerPoints === 5){
+        div2.textContent += `YOU WIN!!! CONGRATULATIONS.
+        `;
+    } else if(ComputerPoints === 5){
+        div2.textContent += `YOU LOSE!!! TRY AGAIN.
+        `;
+    }
+});
+ scissors.addEventListener('click',() => {
+    div2.textContent += `${playRound('SCISSORS', getComputerChoice)} 
+    Note: Computer-points=${ComputerPoints} and Players-points=${PlayerPoints}
+    
+    `;
+    if(PlayerPoints === 5){
+        div2.textContent += `YOU WIN!!! CONGRATULATIONS.
+
+        `;
+    } else if(ComputerPoints === 5){
+        div2.textContent += `YOU LOSE!!! TRY AGAIN.
+        
+        `;
+    }
+});
